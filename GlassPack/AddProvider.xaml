@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="AddProvider" Height="450" Width="800">
+        Title="Добавление/изменение поставщика"  SizeToContent="WidthAndHeight" MinWidth="300">
     <Grid>
-        
+        <StackPanel Margin="10 10 10 10">
+
+            <TextBlock>Название</TextBlock>
+            <TextBox Text="{Binding Title}" />
+            <TextBlock>Адрес</TextBlock>
+            <TextBox Text="{Binding Address}" />
+
+            <DockPanel Margin="0 10 0 0" LastChildFill="True" VerticalAlignment="Bottom">
+
+                <UniformGrid Columns="2">
+
+                    <Button IsDefault="True" Content="Сохранить"  Margin="0 0 10 0" Click="Accept_Click"/>
+                    <Button IsCancel="True" Content="Отмена"  />
+                </UniformGrid>
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </Window>

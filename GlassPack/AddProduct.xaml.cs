@@ -31,19 +31,19 @@ namespace GlassPack
         public AddProduct(Product product)
         {
             InitializeComponent();
-
             this.Loaded += Window_Loaded;
+
+            Product = product;
 
             //присваиваем комбобоксу записанное в бд значение для отображения
             brandComboBox.SelectedIndex = Product.Brand.Id - 1;
-            providerComboBox.SelectedIndex = Product.Provider.Id - 1;
+            providerComboBox.SelectedIndex = Product.Provider.Id-1;
 
 
             //выключаем возможность взаимодействия с комбобокс
-            // humansComboBox.IsEnabled = false;
+            //brandComboBox.IsEnabled = false;
+           // providerComboBox.IsEnabled = false;
 
-
-            Product = product;
             //передача объекта в контекст
             DataContext = Product;
         }
@@ -55,6 +55,20 @@ namespace GlassPack
 
             brandComboBox.SelectedIndex = 1;
             providerComboBox.SelectedIndex = 1;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //загружаем данные из бд
+            db.Brands.Load();
+            db.Products.Load();
+
+            //humans = db.Humans.Where(x=>x.Id>1).ToList();
+            brands = db.Brands.ToList();
+            providers = db.Providers.ToList();
+
+            brandComboBox.ItemsSource = brands;
+            providerComboBox.ItemsSource = providers;
         }
 
         void Accept_Click(object sender, RoutedEventArgs e)
@@ -98,18 +112,6 @@ namespace GlassPack
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //загружаем данные из бд
-            db.Brands.Load();
-            db.Products.Load();
-
-            //humans = db.Humans.Where(x=>x.Id>1).ToList();
-            brands = db.Brands.ToList();
-            providers = db.Providers.ToList();
-
-            brandComboBox.ItemsSource = brands;
-            providerComboBox.ItemsSource = providers;
-        }
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlassPack.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,20 @@ namespace GlassPack
     /// </summary>
     public partial class AddProvider : Window
     {
-        public AddProvider()
+        public Provider Provider { get; set; }
+        public AddProvider(Provider provider)
         {
             InitializeComponent();
+
+            Provider = provider;
+
+            DataContext = Provider;
+        }
+
+        void Accept_Click(object sender, RoutedEventArgs e)
+        {
+
+            DialogResult = true;
         }
     }
 }

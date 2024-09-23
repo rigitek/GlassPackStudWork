@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlassPack.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,20 @@ namespace GlassPack
     /// </summary>
     public partial class AddBrand : Window
     {
-        public AddBrand()
+        public Brand Brand { get; set; }
+        public AddBrand(Brand brand)
         {
             InitializeComponent();
+
+            Brand=brand;
+
+            DataContext = Brand;
+        }
+
+        void Accept_Click(object sender, RoutedEventArgs e)
+        {
+
+            DialogResult = true;
         }
     }
 }

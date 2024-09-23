@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="BrandWin" Height="450" Width="800">
+        Title="Производители" Height="500" Width="300" Loaded="Window_Loaded">
     <Grid>
-        
+       
+
+        <Menu>
+            <MenuItem Header="Назад" Click="Back_Click"/>
+            <MenuItem Header="|" IsEnabled="False"/>
+            <MenuItem Header="Добавить" Click="Add_Click"/>
+            <MenuItem Header="Изменить" Click="Edit_Click"/>
+            <MenuItem Header="Удалить" Click="Delete_Click"/>
+        </Menu>
+
+        <ListBox x:Name="brandList" ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="20" >
+                            <Run Text="{Binding Title}"  />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
