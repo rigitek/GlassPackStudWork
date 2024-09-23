@@ -36,13 +36,13 @@ namespace GlassPack
             Product = product;
 
             //присваиваем комбобоксу записанное в бд значение для отображения
-            brandComboBox.SelectedIndex = Product.Brand.Id - 1;
-            providerComboBox.SelectedIndex = Product.Provider.Id-1;
+            brandComboBox.SelectedIndex = Product.Brand.Id-2;
+            providerComboBox.SelectedIndex = Product.Provider.Id-2;
 
 
             //выключаем возможность взаимодействия с комбобокс
-            //brandComboBox.IsEnabled = false;
-           // providerComboBox.IsEnabled = false;
+            brandComboBox.IsEnabled = false;
+           providerComboBox.IsEnabled = false;
 
             //передача объекта в контекст
             DataContext = Product;
@@ -53,8 +53,8 @@ namespace GlassPack
             InitializeComponent();
             this.Loaded += Window_Loaded;
 
-            brandComboBox.SelectedIndex = 1;
-            providerComboBox.SelectedIndex = 1;
+            brandComboBox.SelectedIndex = 0;
+            providerComboBox.SelectedIndex = 0;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -111,7 +111,5 @@ namespace GlassPack
                 DialogResult = true;
             }
         }
-
-       
     }
 }

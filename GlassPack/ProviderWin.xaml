@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="Поставщики" Height="500" Width="300">
+        Title="Поставщики" SizeToContent="WidthAndHeight" MaxHeight="500" MinWidth="300">
     <Grid>
         <Menu>
             <MenuItem Header="Назад" Click="Back_Click"/>
@@ -15,19 +15,16 @@
             <MenuItem Header="Удалить" Click="Delete_Click"/>
         </Menu>
 
-        <ListBox x:Name="providerList" ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock FontSize="20" >
-                            <Run Text="{Binding Title}"  />
-                        </TextBlock>
-                        <TextBlock FontSize="20" >
-                            <Run Text="{Binding Address}"  />
-                        </TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView x:Name="providerList" ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}">Название</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Address}">Адрес</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+       
     </Grid>
 </Window>

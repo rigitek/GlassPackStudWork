@@ -31,7 +31,7 @@ namespace GlassPack
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            db.Brands.Load();
+            db.Brands.Where(x => x.Id > 1).Load();
             // устанавливаем данные в качестве контекста
             DataContext = db.Brands.Local.ToObservableCollection();
         }

@@ -16,7 +16,9 @@ namespace GlassPack.Models
 
         public int ArticleNum { get; set; }
 
+        public int BrandId { get; set; }
         public Brand? Brand { get; set; }
+        public int ProviderId { get; set; }
         public Provider? Provider { get; set; }
     }
 }

@@ -11,10 +11,10 @@
 
             <TextBlock Text="Производитель"/>
             <ComboBox Margin="0 0 0 5" x:Name="brandComboBox" SelectedItem="{Binding Brand}"/>
-            <Button Content="Добавить"/>
+           
             <TextBlock Text="Поставщик"/>
             <ComboBox Margin="0 0 0 5" x:Name="providerComboBox" SelectedItem="{Binding Provider}"/>
-            <Button Content="Добавить"/>
+            
             <TextBlock>Название</TextBlock>
             <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>
             <TextBlock>Описание</TextBlock>
