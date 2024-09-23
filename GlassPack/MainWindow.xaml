@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <ListBox x:Name="productsGrid"  ItemsSource="{Binding}" Margin="0 20 0 0">
+        
+        <Menu>
+            <MenuItem Header="Добавить" Click="Add_Click"/>
+            <MenuItem Header="Изменить" Click="Edit_Click"/>
+            <MenuItem Header="Удалить" Click="Delete_Click"/>
+            <MenuItem  Header="Производители" Click="Brand_Click"/>
+            <MenuItem  Header="Поставщики" Click="Provider_Click"/>
+        </Menu>
+        <ListBox x:Name="productsGrid"  ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="3">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="2"/>
@@ -18,7 +26,12 @@
 
                     <StackPanel>
                         <TextBlock FontSize="20" >
-                            <Run Text="{Binding Brand}"  />
+                            <Run Text="Производитель:" />
+                            <Run Text="{Binding Brand.Title}"  />
+                        </TextBlock>
+                        <TextBlock FontSize="20" >
+                            <Run Text="Поставщик:" />
+                            <Run Text="{Binding Provider.Title}"  />
                         </TextBlock>
                         <TextBlock FontSize="20" >         
                             <Run Text="{Binding Title}"  />
@@ -40,5 +53,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
     </Grid>
 </Window>

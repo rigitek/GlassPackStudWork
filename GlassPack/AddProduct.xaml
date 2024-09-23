@@ -1,0 +1,41 @@
+﻿<Window x:Class="GlassPack.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GlassPack"
+        mc:Ignorable="d"
+        Title="Товар" SizeToContent="WidthAndHeight" MinWidth="300" Loaded="Window_Loaded">
+    <Grid>
+        <StackPanel Margin="10 10 10 10">
+
+            <TextBlock Text="Производитель"/>
+            <ComboBox Margin="0 0 0 5" x:Name="brandComboBox" SelectedItem="{Binding Brand}"/>
+            <Button Content="Добавить"/>
+            <TextBlock Text="Поставщик"/>
+            <ComboBox Margin="0 0 0 5" x:Name="providerComboBox" SelectedItem="{Binding Provider}"/>
+            <Button Content="Добавить"/>
+            <TextBlock>Название</TextBlock>
+            <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>
+            <TextBlock>Описание</TextBlock>
+            <TextBox x:Name="DecriptionBox" Text="{Binding Description}" Margin="0 0 0 5"/>
+            <TextBlock>Артикул</TextBlock>
+            <TextBox x:Name="ArticleBox" Text="{Binding ArticleNum}" Margin="0 0 0 5"/>
+            <TextBlock>Количество</TextBlock>
+            <TextBox x:Name="AmountBox" Text="{Binding Amount}" Margin="0 0 0 5"/>
+            <TextBlock>Цена</TextBlock>
+            <TextBox x:Name="PriceBox" Text="{Binding Price}" Margin="0 0 0 10" />
+
+
+
+            <DockPanel LastChildFill="True" VerticalAlignment="Bottom">
+
+                <UniformGrid Columns="2">
+
+                    <Button IsDefault="True" Content="Добавить" Height="25" Margin="0 0 5 0" Click="Accept_Click"/>
+                    <Button IsCancel="True" Content="Назад" Height="25"   />
+                </UniformGrid>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
