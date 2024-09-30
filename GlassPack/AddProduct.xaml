@@ -22,12 +22,12 @@
             <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>
             <TextBlock>Описание</TextBlock>
             <TextBox x:Name="DecriptionBox" Text="{Binding Description}" Margin="0 0 0 5"/>
-            <TextBlock>Артикул</TextBlock>
-            <TextBox x:Name="UnitBox" Text="{Binding Unit}" Margin="0 0 0 5"/>
-            <TextBlock>Ед. изм.</TextBlock>
+            <TextBlock>№ полки</TextBlock>
             <TextBox x:Name="ShelfBox" Text="{Binding Shelf}" Margin="0 0 0 5"/>
-            <TextBlock>Полка</TextBlock>
+            <TextBlock>Артикул</TextBlock>
             <TextBox x:Name="ArticleBox" Text="{Binding ArticleNum}" Margin="0 0 0 5"/>
+            <TextBlock>Ед. изм.</TextBlock>
+            <TextBox x:Name="UnitBox" Text="{Binding Unit}" Margin="0 0 0 5"/>
             <TextBlock>Количество</TextBlock>
             <TextBox x:Name="AmountBox" Text="{Binding Amount}" Margin="0 0 0 5"/>
             <TextBlock>Цена</TextBlock>
