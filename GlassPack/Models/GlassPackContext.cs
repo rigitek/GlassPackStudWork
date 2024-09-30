@@ -13,6 +13,7 @@ namespace GlassPack.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Provider> Providers { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
         public GlassPackContext()
         {
             //Database.EnsureDeleted();
@@ -42,6 +43,14 @@ namespace GlassPack.Models
                        Title = "Нет поставщика"
                    }
            );
+
+            modelBuilder.Entity<Warehouse>().HasData(
+                  new Warehouse
+                  {
+                      Id = 1,
+                      Title = "Основной"
+                  }
+          );
         }
     }
 }

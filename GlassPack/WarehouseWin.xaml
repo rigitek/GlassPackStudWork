@@ -1,0 +1,28 @@
+﻿<Window x:Class="GlassPack.WarehouseWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GlassPack"
+        mc:Ignorable="d"
+        Title="Склады" SizeToContent="WidthAndHeight" MaxHeight="500" MinWidth="300">
+    <Grid>
+        <Menu>
+            <MenuItem Header="Назад" Click="Back_Click"/>
+            <MenuItem Header="|" IsEnabled="False"/>
+            <MenuItem Header="Добавить" Click="Add_Click"/>
+            <MenuItem Header="Изменить" Click="Edit_Click"/>
+            <MenuItem Header="Удалить" Click="Delete_Click"/>
+        </Menu>
+
+        <ListView x:Name="warehouseList" ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}">Название</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Address}">Адрес</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

@@ -121,5 +121,12 @@ namespace GlassPack
             this.Close();
             providerWin.Show();
         }
+
+        private void Warehouse_Click(object sender, RoutedEventArgs e)
+        {
+            WarehouseWin warehouseWin = new WarehouseWin();
+            this.Close();
+            warehouseWin.Show();
+        }
     }
 }

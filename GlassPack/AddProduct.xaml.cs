@@ -27,6 +27,7 @@ namespace GlassPack
 
         List<Brand> brands;
         List<Provider> providers;
+        List<Warehouse> warehouses;
         public Product Product { get; set; }
         public AddProduct(Product product)
         {
@@ -36,13 +37,15 @@ namespace GlassPack
             Product = product;
 
             //присваиваем комбобоксу записанное в бд значение для отображения
-            brandComboBox.SelectedIndex = Product.Brand.Id-2;
-            providerComboBox.SelectedIndex = Product.Provider.Id-2;
+            brandComboBox.SelectedIndex = Product.Brand.Id - 2;
+            providerComboBox.SelectedIndex = Product.Provider.Id - 2;
+            warehouseComboBox.SelectedIndex = Product.Warehouse.Id - 2;
 
 
             //выключаем возможность взаимодействия с комбобокс
             brandComboBox.IsEnabled = false;
-           providerComboBox.IsEnabled = false;
+            providerComboBox.IsEnabled = false;
+            warehouseComboBox.IsEnabled = false;
 
             //передача объекта в контекст
             DataContext = Product;
@@ -55,6 +58,7 @@ namespace GlassPack
 
             brandComboBox.SelectedIndex = 0;
             providerComboBox.SelectedIndex = 0;
+            warehouseComboBox.SelectedIndex = 0;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -62,13 +66,16 @@ namespace GlassPack
             //загружаем данные из бд
             db.Brands.Load();
             db.Products.Load();
+            db.Warehouses.Load();
 
             //humans = db.Humans.Where(x=>x.Id>1).ToList();
             brands = db.Brands.ToList();
             providers = db.Providers.ToList();
+            warehouses = db.Warehouses.ToList();
 
             brandComboBox.ItemsSource = brands;
             providerComboBox.ItemsSource = providers;
+            warehouseComboBox.ItemsSource = warehouses;
         }
 
         void Accept_Click(object sender, RoutedEventArgs e)
@@ -80,11 +87,13 @@ namespace GlassPack
                 //получаем выбранные объекты
                 Brand brand = brandComboBox.SelectedItem as Brand;
                 Provider provider = providerComboBox.SelectedItem as Provider;
+                Warehouse warehouse = warehouseComboBox.SelectedItem as Warehouse;
 
                 //проверяем что все объекты получены
                 //if (human == null) return;
                 if (brand == null) return;
                 if (provider == null) return;
+                if (warehouse == null) return;
 
                 //создаем новый обьект и заполняем данными введенными в окне
                 Product product = new Product
@@ -92,16 +101,20 @@ namespace GlassPack
                     Title = TitleBox.Text,
                     Description = DecriptionBox.Text,
                     ArticleNum = int.Parse(ArticleBox.Text),
+                    Shelf = ShelfBox.Text,
+                    Unit = UnitBox.Text,
                     Amount = int.Parse(AmountBox.Text),
                     Price = double.Parse(PriceBox.Text),
                     Brand = brand,
-                    Provider = provider
+                    Provider = provider,
+                    Warehouse = warehouse
                 };
 
                 //прикрепляем объекты к текущему контексту данных
                 // db.Humans.Attach(human);
                 db.Brands.Attach(brand);
                 db.Providers.Attach(provider);
+                db.Warehouses.Attach(warehouse);
 
                 //добавляем новый объект в бд
                 db.Products.Add(product);

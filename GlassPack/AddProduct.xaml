@@ -15,11 +15,18 @@
             <TextBlock Text="Поставщик"/>
             <ComboBox Margin="0 0 0 5" x:Name="providerComboBox" SelectedItem="{Binding Provider}"/>
             
+            <TextBlock Text="Склад"/>
+            <ComboBox Margin="0 0 0 5" x:Name="warehouseComboBox" SelectedItem="{Binding Warehouse}"/>
+
             <TextBlock>Название</TextBlock>
             <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>
             <TextBlock>Описание</TextBlock>
             <TextBox x:Name="DecriptionBox" Text="{Binding Description}" Margin="0 0 0 5"/>
             <TextBlock>Артикул</TextBlock>
+            <TextBox x:Name="UnitBox" Text="{Binding Unit}" Margin="0 0 0 5"/>
+            <TextBlock>Ед. изм.</TextBlock>
+            <TextBox x:Name="ShelfBox" Text="{Binding Shelf}" Margin="0 0 0 5"/>
+            <TextBlock>Полка</TextBlock>
             <TextBox x:Name="ArticleBox" Text="{Binding ArticleNum}" Margin="0 0 0 5"/>
             <TextBlock>Количество</TextBlock>
             <TextBox x:Name="AmountBox" Text="{Binding Amount}" Margin="0 0 0 5"/>

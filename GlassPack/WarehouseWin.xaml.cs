@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 namespace GlassPack
 {
     /// <summary>
-    /// Логика взаимодействия для ProviderWin.xaml
+    /// Логика взаимодействия для WarehouseWin.xaml
     /// </summary>
-    public partial class ProviderWin : Window
+    public partial class WarehouseWin : Window
     {
         GlassPackContext db = new GlassPackContext();
-        public ProviderWin()
+        public WarehouseWin()
         {
             InitializeComponent();
             this.Loaded += Window_Loaded;
@@ -30,21 +30,21 @@ namespace GlassPack
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            db.Providers.Where(x=>x.Id>1).Load();
+            db.Warehouses.Load();
             // устанавливаем данные в качестве контекста
-            DataContext = db.Providers.Local.ToObservableCollection();
+            DataContext = db.Warehouses.Local.ToObservableCollection();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             //создаем обьект нового окна с созданием нового обьекта для записи в бд
-            AddProvider AddProvider = new AddProvider(new Provider());
+            AddWarehouse AddWarehouse = new AddWarehouse(new Warehouse());
 
             //если открытое окно завершилось с true
-            if (AddProvider.ShowDialog() == true)
+            if (AddWarehouse.ShowDialog() == true)
             {
-                Provider Provider = AddProvider.Provider;
-                db.Providers.Add(Provider);
+                Warehouse Warehouse = AddWarehouse.Warehouse;
+                db.Warehouses.Add(Warehouse);
                 db.SaveChanges();
             }
         }
@@ -52,32 +52,32 @@ namespace GlassPack
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             //получаем выделенный объект
-            Provider? provider = providerList.SelectedItem as Provider;
-            if (provider is null) return;
+            Warehouse? warehouse = warehouseList.SelectedItem as Warehouse;
+            if (warehouse is null) return;
 
             //передача данных выбранного обьекта в окно
-            AddProvider AddProvider = new AddProvider(new Provider
+            AddWarehouse AddWarehouse = new AddWarehouse(new Warehouse
             {
-                Id = provider.Id,
-                Title = provider.Title,
-                Address = provider.Address
+                Id = warehouse.Id,
+                Title = warehouse.Title,
+                Address = warehouse.Address
             });
 
 
-            if (AddProvider.ShowDialog() == true)
+            if (AddWarehouse.ShowDialog() == true)
             {
                 // получаем измененный объект
-                provider = db.Providers.Find(AddProvider.Provider.Id);
+                warehouse = db.Warehouses.Find(AddWarehouse.Warehouse.Id);
                 //если объект найдет
-                if (provider != null)
+                if (warehouse != null)
                 {
-                    provider.Title = AddProvider.Provider.Title;
-                    provider.Address = AddProvider.Provider.Address;
+                    warehouse.Title = AddWarehouse.Warehouse.Title;
+                    warehouse.Address = AddWarehouse.Warehouse.Address;
 
                     //сохраняем изменения в бд
                     db.SaveChanges();
                     //обновляем список 
-                    providerList.Items.Refresh();
+                    warehouseList.Items.Refresh();
                 }
             }
         }
@@ -85,11 +85,11 @@ namespace GlassPack
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             // получаем выделенный объект
-            Provider? provider = providerList.SelectedItem as Provider;
+            Warehouse? warehouse = warehouseList.SelectedItem as Warehouse;
             // если ни одного объекта не выделено, выходим
-            if (provider is null) return;
+            if (warehouse is null) return;
             //удаляем выделенный обьект из бд
-            db.Providers.Remove(provider);
+            db.Warehouses.Remove(warehouse);
             // сохраняем изменения в бд
             db.SaveChanges();
         }

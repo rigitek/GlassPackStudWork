@@ -15,6 +15,7 @@
             <MenuItem Header="|" IsEnabled="False"/>
             <MenuItem  Header="Производители" Click="Brand_Click"/>
             <MenuItem  Header="Поставщики" Click="Provider_Click"/>
+            <MenuItem  Header="Склады" Click="Warehouse_Click"/>
         </Menu>
         <ListView x:Name="productsGrid"  ItemsSource="{Binding}" Margin="0 20 0 0" Grid.ColumnSpan="3">
 
@@ -22,9 +23,12 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Brand}">Бренд</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Provider}" >Поставщик</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Warehouse}">Склад</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Title}">Название</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Description}">Описание</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Shelf}">Полка</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ArticleNum}">Артикул</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Unit}">Ед.изм.</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}">Количество</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}">Цена</GridViewColumn>
                 </GridView>
