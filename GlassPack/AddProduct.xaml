@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="Товар" SizeToContent="WidthAndHeight" MinWidth="300" Loaded="Window_Loaded">
+        Title="Товар" SizeToContent="WidthAndHeight" MinWidth="300"  Loaded="Window_Loaded">
     <Grid>
         <StackPanel Margin="10 10 10 10">
 
             <TextBlock Text="Производитель"/>
             <ComboBox Margin="0 0 0 5" x:Name="brandComboBox" SelectedItem="{Binding Brand}"/>
-           
+            <Button Content="Добавить" Click="Add_Brand"/>
+
             <TextBlock Text="Поставщик"/>
             <ComboBox Margin="0 0 0 5" x:Name="providerComboBox" SelectedItem="{Binding Provider}"/>
-            
+            <Button Content="Добавить" Click="Add_Provider"/>
+
+
             <TextBlock Text="Склад"/>
             <ComboBox Margin="0 0 0 5" x:Name="warehouseComboBox" SelectedItem="{Binding Warehouse}"/>
+            <Button Content="Добавить" Click="Add_Warehouse"/>
 
             <TextBlock>Название</TextBlock>
             <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>

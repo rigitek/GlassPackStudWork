@@ -65,7 +65,7 @@ namespace GlassPack
         {
             //загружаем данные из бд
             db.Brands.Load();
-            db.Products.Load();
+            db.Providers.Load();
             db.Warehouses.Load();
 
             //humans = db.Humans.Where(x=>x.Id>1).ToList();
@@ -123,6 +123,61 @@ namespace GlassPack
 
                 DialogResult = true;
             }
+        }
+
+        private void Add_Provider(object sender, RoutedEventArgs e)
+        {
+            //создаем обьект нового окна с созданием нового обьекта для записи в бд
+            AddProvider AddProvider = new AddProvider(new Provider());
+
+            
+            //если открытое окно завершилось с true
+            if (AddProvider.ShowDialog() == true)
+            {
+                Provider Provider = AddProvider.Provider;
+                db.Providers.Add(Provider);
+                db.SaveChanges();
+            }
+
+            db.Providers.Load();
+            providers = db.Providers.ToList();
+            providerComboBox.ItemsSource = providers;
+        }
+
+        private void Add_Brand(object sender, RoutedEventArgs e)
+        {
+            //создаем обьект нового окна с созданием нового обьекта для записи в бд
+            AddBrand AddBrand = new AddBrand(new Brand());
+
+            //если открытое окно завершилось с true
+            if (AddBrand.ShowDialog() == true)
+            {
+                Brand Brand = AddBrand.Brand;
+                db.Brands.Add(Brand);
+                db.SaveChanges();
+            }
+
+            //загружаем данные из бд
+            db.Brands.Load();
+            brands = db.Brands.ToList();
+            brandComboBox.ItemsSource = brands;
+        }
+
+        private void Add_Warehouse(object sender, RoutedEventArgs e)
+        {
+            //создаем обьект нового окна с созданием нового обьекта для записи в бд
+            AddWarehouse AddWarehouse = new AddWarehouse(new Warehouse());
+
+            //если открытое окно завершилось с true
+            if (AddWarehouse.ShowDialog() == true)
+            {
+                Warehouse Warehouse = AddWarehouse.Warehouse;
+                db.Warehouses.Add(Warehouse);
+                db.SaveChanges();
+            }
+            db.Warehouses.Load();
+            warehouses = db.Warehouses.ToList();
+            warehouseComboBox.ItemsSource = warehouses;
         }
     }
 }
