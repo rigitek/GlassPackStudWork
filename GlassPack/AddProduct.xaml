@@ -11,16 +11,15 @@
 
             <TextBlock Text="Производитель"/>
             <ComboBox Margin="0 0 0 5" x:Name="brandComboBox" SelectedItem="{Binding Brand}"/>
-            <Button Content="Добавить" Click="Add_Brand"/>
+            <Button x:Name="Brand_Button" Content="Добавить" Click="Add_Brand"/>
 
             <TextBlock Text="Поставщик"/>
             <ComboBox Margin="0 0 0 5" x:Name="providerComboBox" SelectedItem="{Binding Provider}"/>
-            <Button Content="Добавить" Click="Add_Provider"/>
-
+            <Button  x:Name="Provider_Button" Content="Добавить" Click="Add_Provider"/>
 
             <TextBlock Text="Склад"/>
             <ComboBox Margin="0 0 0 5" x:Name="warehouseComboBox" SelectedItem="{Binding Warehouse}"/>
-            <Button Content="Добавить" Click="Add_Warehouse"/>
+            <Button x:Name="Warehouse_Button" Content="Добавить" Click="Add_Warehouse"/>
 
             <TextBlock>Название</TextBlock>
             <TextBox x:Name="TitleBox" Text="{Binding Title}" Margin="0 0 0 5"/>

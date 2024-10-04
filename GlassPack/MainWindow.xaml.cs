@@ -31,6 +31,7 @@ namespace GlassPack
             db.Products.Load();
             db.Brands.Load();
             db.Providers.Load();
+            db.Warehouses.Load();
             DataContext = db.Products.Local.ToObservableCollection();
         }
 
@@ -65,10 +66,13 @@ namespace GlassPack
                 Title = product.Title,
                 Description=product.Description,
                 ArticleNum=product.ArticleNum,
+                Shelf=product.Shelf,
+                Unit=product.Unit,
                 Amount = product.Amount,
                 Price = product.Price,
                 Brand=product.Brand,
-                Provider=product.Provider
+                Provider=product.Provider,
+                Warehouse=product.Warehouse
             });
 
 
@@ -87,6 +91,7 @@ namespace GlassPack
                     product.Price = AddProduct.Product.Price;
                     product.Brand= AddProduct.Product.Brand;
                     product.Provider = AddProduct.Product.Provider;
+                    product.Warehouse = AddProduct.Product.Warehouse;
                     //сохранение данных в бд
                     db.SaveChanges();
                     //обновление списка

@@ -47,6 +47,10 @@ namespace GlassPack
             providerComboBox.IsEnabled = false;
             warehouseComboBox.IsEnabled = false;
 
+            Brand_Button.IsEnabled = false;
+            Provider_Button.IsEnabled = false;
+            Warehouse_Button.IsEnabled = false;
+
             //передача объекта в контекст
             DataContext = Product;
         }
