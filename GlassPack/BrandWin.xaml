@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="Производители" SizeToContent="WidthAndHeight" MaxHeight="500" MinWidth="300" Loaded="Window_Loaded">
+        Title="Производители" SizeToContent="WidthAndHeight" MinHeight="200" MaxHeight="500" MinWidth="300" Loaded="Window_Loaded">
     <Grid>
        
 

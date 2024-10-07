@@ -21,7 +21,7 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Brand}">Бренд</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Brand}">Производитель</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Provider}" >Поставщик</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Warehouse}">Склад</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Title}">Название</GridViewColumn>
@@ -29,7 +29,7 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Shelf}">Полка</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=ArticleNum}">Артикул</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Unit}">Ед.изм.</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}">Количество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}">Кол-во</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Price}">Цена</GridViewColumn>
                 </GridView>
             </ListView.View>

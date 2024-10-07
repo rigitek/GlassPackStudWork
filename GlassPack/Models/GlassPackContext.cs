@@ -40,17 +40,10 @@ namespace GlassPack.Models
                    new Provider
                    {
                        Id = 1,
-                       Title = "Нет поставщика"
+                       Title = "Нет поставщика",
+                       Address="Нет адреса"
                    }
            );
-
-            modelBuilder.Entity<Warehouse>().HasData(
-                  new Warehouse
-                  {
-                      Id = 1,
-                      Title = "Основной"
-                  }
-          );
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GlassPack"
         mc:Ignorable="d"
-        Title="Склады" SizeToContent="WidthAndHeight" MaxHeight="500" MinWidth="300">
+        Title="Склады" SizeToContent="WidthAndHeight" MaxHeight="500" MinHeight="200" MinWidth="300">
     <Grid>
         <Menu>
             <MenuItem Header="Назад" Click="Back_Click"/>

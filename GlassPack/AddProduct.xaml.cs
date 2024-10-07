@@ -37,7 +37,7 @@ namespace GlassPack
             Product = product;
 
             //присваиваем комбобоксу записанное в бд значение для отображения
-            brandComboBox.SelectedIndex = Product.Brand.Id - 2;
+            brandComboBox.SelectedIndex = Product.Brand.Id -2;
             providerComboBox.SelectedIndex = Product.Provider.Id - 2;
             warehouseComboBox.SelectedIndex = Product.Warehouse.Id - 2;
 

@@ -49,6 +49,9 @@ namespace GlassPack
                 ////сохранение изменений
                 //db.SaveChanges();
                 db.Products.Load();
+                db.Brands.Load();
+                db.Providers.Load();
+                db.Warehouses.Load();
             }
         }
 
@@ -60,21 +63,22 @@ namespace GlassPack
             if (product is null) return;
 
             //создание объекта окна и отправка выбранных данных в конструкторе
-            AddProduct AddProduct = new AddProduct(new Product
-            {
-                Id = product.Id,
-                Title = product.Title,
-                Description=product.Description,
-                ArticleNum=product.ArticleNum,
-                Shelf=product.Shelf,
-                Unit=product.Unit,
-                Amount = product.Amount,
-                Price = product.Price,
-                Brand=product.Brand,
-                Provider=product.Provider,
-                Warehouse=product.Warehouse
-            });
+            //AddProduct AddProduct = new AddProduct(new Product
+            //{
+            //    Id = product.Id,
+            //    Title = product.Title,
+            //    Description=product.Description,
+            //    ArticleNum=product.ArticleNum,
+            //    Shelf=product.Shelf,
+            //    Unit=product.Unit,
+            //    Amount = product.Amount,
+            //    Price = product.Price,
+            //    Brand=product.Brand,
+            //    Provider=product.Provider,
+            //    Warehouse=product.Warehouse
+            //});
 
+            AddProduct AddProduct = new AddProduct(product);
 
             //если при закрытии нажато добавить, то тру и
             if (AddProduct.ShowDialog() == true)
@@ -87,6 +91,8 @@ namespace GlassPack
                     product.Title = AddProduct.Product.Title;
                     product.Description = AddProduct.Product.Description;
                     product.ArticleNum = AddProduct.Product.ArticleNum;
+                    product.Shelf = AddProduct.Product.Shelf;
+                    product.Unit = AddProduct.Product.Unit;
                     product.Amount = AddProduct.Product.Amount;
                     product.Price = AddProduct.Product.Price;
                     product.Brand= AddProduct.Product.Brand;
